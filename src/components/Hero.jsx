@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black">
+    <section className="relative w-full h-screen overflow-hidden bg-brand-500">
       {/* Background Video */}
       <video
         ref={videoRef}
@@ -45,8 +45,12 @@ const Hero = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Contrast scrim so the headline stays legible over any video content */}
-      <div className="absolute top-0 left-0 w-full h-full z-[5] bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
+      {/* Red duotone wash — this is the ONLY section with a full-bleed brand-red background */}
+      <div className="absolute top-0 left-0 w-full h-full z-[4] bg-black/35 mix-blend-multiply pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full z-[4] bg-brand-500/70 pointer-events-none" />
+
+      {/* Contrast scrim so the headline stays legible over the video/red wash */}
+      <div className="absolute top-0 left-0 w-full h-full z-[5] bg-gradient-to-r from-black/65 via-black/25 to-transparent pointer-events-none" />
 
       {/* Left Floating Social Bar for Large Screens */}
       <div className="hidden lg:flex flex-col gap-6 fixed left-6 top-1/2 -translate-y-1/2 z-50 mix-blend-difference">
@@ -153,15 +157,15 @@ const Hero = () => {
           className="mt-8 md:mt-0 flex flex-row md:flex-col items-center gap-2 md:gap-3 cursor-pointer group self-start md:self-auto"
           onClick={toggleVideo}
         >
-          <div className="w-12 h-12 md:w-20 md:h-20 rounded-full border border-white/30 bg-black/20 backdrop-blur-md flex justify-center items-center group-hover:scale-110 group-hover:bg-[#ff2a2a] transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_40px_rgba(255,42,42,0.6)]">
+          <div className="w-12 h-12 md:w-20 md:h-20 rounded-full border border-white/40 bg-black/30 backdrop-blur-md flex justify-center items-center group-hover:scale-110 group-hover:bg-white transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.15)] group-hover:shadow-[0_0_40px_rgba(255,255,255,0.5)]">
             {!isPlaying || isMuted ? (
               // Play Icon
-              <svg className="w-5 h-5 md:w-8 md:h-8 text-white ml-0.5 md:ml-1" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 md:w-8 md:h-8 text-white group-hover:text-brand-600 transition-colors duration-300 ml-0.5 md:ml-1" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>
             ) : (
               // Pause Icon
-              <svg className="w-5 h-5 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 md:w-8 md:h-8 text-white group-hover:text-brand-600 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
               </svg>
             )}

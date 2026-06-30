@@ -1,6 +1,26 @@
 @import "tailwindcss";
 
+/*
+  Single brand palette: near-black (ink, every section) + the exact brand
+  red (#ff2a2a) as the ONLY accent color, used for badges, CTAs, borders,
+  and the full-bleed Hero background. Generates bg-ink-*, text-brand-*,
+  border-brand-500/30, etc. via Tailwind v4's @theme — no component should
+  reach for an arbitrary hex value outside this scale.
+*/
 @theme {
+  --color-ink-950: #0a0a0a;
+  --color-ink-900: #111111;
+  --color-ink-800: #1a1a1a;
+  --color-ink-700: #242424;
+
+  --color-brand-700: #cc1f1f;
+  --color-brand-600: #e62525;
+  --color-brand-500: #ff2a2a;
+  --color-brand-400: #ff5c5c;
+  --color-brand-300: #ff8a8a;
+  --color-brand-200: #ffb3b3;
+  --color-brand-100: #ffd9d9;
+
   --animate-float: float 6s ease-in-out infinite;
 
   @keyframes float {
@@ -16,7 +36,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #000;
+  background-color: var(--color-ink-950);
   color: #fff;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
