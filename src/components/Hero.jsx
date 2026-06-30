@@ -39,7 +39,7 @@ const Hero = () => {
         loop
         muted={isMuted}
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="absolute top-0 left-0 w-full h-full object-cover object-top z-0"
       >
         <source src={heroVideo} type="video/mp4" />
         Your browser does not support the video tag.
