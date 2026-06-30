@@ -41,7 +41,7 @@ export const heroContent = {
 export const aboutContent = {
   heading: "Hello!",
   bio: `Hi, my name is <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Jeevith R</span>, an AI and data engineer based in Bengaluru, India, building healthcare-grade pipelines on AWS by day and shipping independent SaaS products end-to-end on my own time.`,
-  techStack: ["Python", "AWS", "Generative AI"],
+  techStack: ["Python", "AWS", "Generative AI", "Power Automate"],
 };
 
 export const skillsContent = {

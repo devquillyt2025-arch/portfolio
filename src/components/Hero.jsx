@@ -135,8 +135,6 @@ const Hero = () => {
 
             {/* Resume Download Button */}
             <a
-              data-aos="fade-up"
-              data-aos-delay="400"
               href={heroContent.ctaResume.href}
               download
               className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-transparent border border-white/50 text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md flex items-center gap-2"

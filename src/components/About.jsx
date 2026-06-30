@@ -1,46 +1,23 @@
 import React from 'react';
 import stackImage from '../assets/about/jeevith-avatar.png';
+import pythonLogo from '../assets/about/python.png';
+import awsLogo from '../assets/about/aws.png';
+import genaiLogo from '../assets/about/genai.png';
+import pautoLogo from '../assets/about/pauto.webp';
 import { aboutContent } from '../data/portfolioData';
 
-// Tech stack SVG icons rendered inline for crisp rendering
-const PythonIcon = () => (
+const TechIcon = ({ src, alt, label }) => (
   <div className="flex flex-col items-center gap-2">
-    <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 128 128">
-      <path fill="#3776AB" d="M63.4 6.2c-31.7 0-29.7 13.7-29.7 13.7l.1 14.2h30.2v4.3H21.6S6.2 36.6 6.2 64.5s13.4 27 13.4 27h8v-16.6s-.4-13.4 13.2-13.4h29.9s12.7.2 12.7-12.3V19.1S85.3 6.2 63.4 6.2zM48.4 14.4a4.6 4.6 0 110 9.2 4.6 4.6 0 010-9.2z"/>
-      <path fill="#FFD43B" d="M64.6 121.8c31.7 0 29.7-13.7 29.7-13.7l-.1-14.2H64v-4.3h42.4s15.4 1.8 15.4-26.1-13.4-27-13.4-27h-8v16.6s.4 13.4-13.2 13.4H57.3s-12.7-.2-12.7 12.3v20.9s-1.9 21.9 19.9 21.9zm15-8.2a4.6 4.6 0 110-9.2 4.6 4.6 0 010 9.2z"/>
-    </svg>
-    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">Python</span>
-  </div>
-);
-
-const AWSIcon = () => (
-  <div className="flex flex-col items-center gap-2">
-    <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 128 128">
-      <path fill="#FF9900" d="M36 60c0 9.5 7.7 17.2 17.2 17.2 6.3 0 11.8-3.4 14.8-8.5l-7-4c-1.5 2.6-4.3 4.3-7.5 4.3-4.8 0-8.7-3.9-8.7-8.7v-.3h25.4v-7.6H36V60z"/>
-      <path fill="#FF9900" d="M53.2 35.3c-9.5 0-17.2 7.7-17.2 17.2h8.5c0-4.8 3.9-8.7 8.7-8.7 3.2 0 6 1.7 7.5 4.3l7-4c-3-5.1-8.5-8.8-14.5-8.8z"/>
-      <path fill="#FF9900" d="M86 35.3l-9 25.7-9-25.7h-7.9l13 35.9h7.8l13-35.9z"/>
-      <path fill="#FF9900" d="M22 92.5c14.6 9.3 41.7 18.6 65 8.8 1.4-.6 2.5.9 1.2 1.9-12.7 9.6-39.5 17.5-65.9 5.4-1.6-.7-.9-2.6-.3-2-.1-.1.1-.1 0-.1z" opacity="0.9"/>
-      <path fill="#FF9900" d="M97.6 89.6c-1-1.2-6.4-.6-8.9-.3-.7.1-.8-.6-.2-1 4.4-3.1 11.5-2.2 12.4-1.2.9 1.1-.2 8.3-4.3 11.8-.6.5-1.2.2-.9-.5.9-2.3 2.9-7.6 1.9-8.8z" opacity="0.9"/>
-    </svg>
-    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">AWS</span>
-  </div>
-);
-
-const GenAIIcon = () => (
-  <div className="flex flex-col items-center gap-2">
-    <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 128 128">
-      <path fill="#ff2a2a" d="M64 16l8.5 26.5L99 51l-26.5 8.5L64 86l-8.5-26.5L29 51l26.5-8.5z"/>
-      <path fill="#ffffff" d="M98 78l4.2 13L115 95.2 102.2 99.4 98 112.4 93.8 99.4 81 95.2 93.8 91z" opacity="0.85"/>
-      <path fill="#ffffff" d="M24 78l3.4 10.6L38 92l-10.6 3.4L24 106l-3.4-10.6L10 92l10.6-3.4z" opacity="0.6"/>
-    </svg>
-    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">Generative AI</span>
+    <img src={src} alt={alt} className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-2xl" />
+    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">{label}</span>
   </div>
 );
 
 const TECH_ICONS = {
-  Python: PythonIcon,
-  AWS: AWSIcon,
-  "Generative AI": GenAIIcon,
+  Python: () => <TechIcon src={pythonLogo} alt="Python" label="Python" />,
+  AWS: () => <TechIcon src={awsLogo} alt="AWS" label="AWS" />,
+  "Generative AI": () => <TechIcon src={genaiLogo} alt="Generative AI" label="Generative AI" />,
+  "Power Automate": () => <TechIcon src={pautoLogo} alt="Power Automate" label="Power Automate" />,
 };
 
 const About = () => {
