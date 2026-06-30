@@ -95,11 +95,11 @@ const Hero = () => {
             data-aos="fade-up"
             className="text-2xl md:text-4xl font-bold mb-3 tracking-tight"
           >
-            <span className="text-white [text-shadow:none]">
+            <span className="text-white [text-shadow:none] text-[27px] md:text-[41px]">
               {heroContent.greeting},
             </span>
             <br />
-            <span className="text-white [text-shadow:none]">
+            <span className="text-black font-bold [text-shadow:none]">
               {heroContent.titleHighlight}
             </span>
           </h1>
@@ -150,9 +150,7 @@ const Hero = () => {
         </div>
 
         {/* Right Side: Play Video Button */}
-        <div 
-          data-aos="zoom-in"
-          data-aos-delay="600"
+        <div
           className="mt-8 md:mt-0 flex flex-row md:flex-col items-center gap-2 md:gap-3 cursor-pointer group self-start md:self-auto"
           onClick={toggleVideo}
         >
@@ -169,7 +167,7 @@ const Hero = () => {
               </svg>
             )}
           </div>
-          <span className="text-white text-[10px] md:text-xs font-bold tracking-widest uppercase opacity-70 group-hover:opacity-100 transition-opacity">
+          <span className="text-white text-[10px] md:text-xs font-bold tracking-widest uppercase opacity-70 group-hover:opacity-100 transition-opacity bg-black/40 px-2 py-1 rounded">
             {!isPlaying || isMuted ? "Play Reel" : "Pause"}
           </span>
         </div>
