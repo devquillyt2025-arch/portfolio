@@ -75,7 +75,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-20 px-6 pb-5 md:pb-[2.5%] md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end text-left w-full">
 
         {/* Left Side: Text and Buttons */}
-        <div className="flex flex-col items-start text-left max-w-2xl w-full">
+        <div className="flex flex-col items-start text-left max-w-2xl w-full translate-y-6">
           {/* Mobile / Hero inline socials */}
           <div 
             data-aos="fade-up"
