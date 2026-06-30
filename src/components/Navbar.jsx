@@ -44,10 +44,10 @@ const Navbar = () => {
         {/* Center: Desktop Menu Links */}
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
-            <a 
-              key={link} 
+            <a
+              key={link}
               href={`#${link.toLowerCase()}`}
-              className="text-white/80 hover:text-white font-medium relative group transition-colors duration-300"
+              className="text-white/80 hover:text-white font-medium relative group transition-colors duration-300 [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.7)]"
             >
               {link}
               {/* Smooth hover underline */}
