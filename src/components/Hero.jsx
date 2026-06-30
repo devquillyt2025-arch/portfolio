@@ -95,11 +95,11 @@ const Hero = () => {
             data-aos="fade-up"
             className="text-2xl md:text-4xl font-bold mb-3 tracking-tight"
           >
-            <span className="text-white [text-shadow:none] text-[27px] md:text-[41px]">
+            <span className="text-white [text-shadow:none] text-[32px] md:text-[48px]">
               {heroContent.greeting},
             </span>
             <br />
-            <span className="text-black font-bold [text-shadow:none]">
+            <span className="text-white font-bold [text-shadow:none]">
               {heroContent.titleHighlight}
             </span>
           </h1>
@@ -114,9 +114,7 @@ const Hero = () => {
           </p>
 
           {/* Buttons */}
-          <div 
-            data-aos="fade-up"
-            data-aos-delay="400"
+          <div
             className="flex flex-row flex-wrap items-center gap-3 w-full"
           >
             {/* Primary Button */}
@@ -136,7 +134,9 @@ const Hero = () => {
             </a>
 
             {/* Resume Download Button */}
-            <a 
+            <a
+              data-aos="fade-up"
+              data-aos-delay="400"
               href={heroContent.ctaResume.href}
               download
               className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-transparent border border-white/50 text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md flex items-center gap-2"
