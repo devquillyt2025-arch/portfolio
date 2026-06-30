@@ -32,14 +32,15 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black">
+    <section className="relative w-full h-screen overflow-hidden bg-[#ff2a2a] md:bg-black">
       {/* Background Video */}
       <video
         ref={videoRef}
         loop
         muted={isMuted}
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover object-top z-0"
+        preload="auto"
+        className="absolute top-0 left-0 w-full h-full object-cover object-top z-0 bg-[#ff2a2a] md:bg-black"
       >
         <source src={heroVideo} type="video/mp4" />
         Your browser does not support the video tag.

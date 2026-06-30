@@ -41,6 +41,15 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+/* Mobile-only: red fallback so the very first paint (and OG screenshot)
+   never shows black before the Hero video/JS takes over. */
+@media (max-width: 767px) {
+  html,
+  body {
+    background-color: #ff2a2a;
+  }
+}
+
 [data-aos="drop-bounce"] {
   opacity: 0;
 }
