@@ -45,9 +45,6 @@ const Hero = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Contrast scrim so the headline stays legible over any video content */}
-      <div className="absolute top-0 left-0 w-full h-full z-[5] bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
-
       {/* Left Floating Social Bar for Large Screens */}
       <div className="hidden lg:flex flex-col gap-6 fixed left-6 top-1/2 -translate-y-1/2 z-50 mix-blend-difference">
         <a 
@@ -94,18 +91,18 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 
+          <h1
             data-aos="fade-up"
-            className="text-white text-3xl md:text-5xl font-bold mb-4 tracking-tight"
+            className="text-white text-3xl md:text-5xl font-bold mb-4 tracking-tight [text-shadow:0_2px_4px_rgba(0,0,0,0.9),0_4px_18px_rgba(0,0,0,0.75)]"
           >
-            {heroContent.greeting}, <br /> <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">{heroContent.titleHighlight}</span>
+            {heroContent.greeting}, <br /> <span className="text-white">{heroContent.titleHighlight}</span>
           </h1>
 
           {/* Subheading */}
-          <p 
+          <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-white text-sm md:text-lg font-semibold mb-8 max-w-md drop-shadow-md"
+            className="text-white text-sm md:text-lg font-semibold mb-8 max-w-md [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_2px_10px_rgba(0,0,0,0.7)]"
           >
             {heroContent.subtitle}
           </p>
