@@ -1,68 +1,49 @@
 import React from 'react';
-import { BrainCircuit } from 'lucide-react';
 import stackImage from '../assets/about/jeevith-avatar.png';
-import awsLogo from '../assets/about/aws.jpeg';
+import pythonLogo from '../assets/about/python.png';
+import awsLogo from '../assets/about/aws.png';
+import genaiLogo from '../assets/about/genai.png';
+import pautoLogo from '../assets/about/pauto.webp';
 import { aboutContent } from '../data/portfolioData';
 
-// Tech stack icons rendered inline for crisp rendering
-const PythonIcon = () => (
+const TechIcon = ({ src, alt, label }) => (
   <div className="flex flex-col items-center gap-2">
-    <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 128 128">
-      <path fill="#3776AB" d="M63.4 6.2c-31.7 0-29.7 13.7-29.7 13.7l.1 14.2h30.2v4.3H21.6S6.2 36.6 6.2 64.5s13.4 27 13.4 27h8v-16.6s-.4-13.4 13.2-13.4h29.9s12.7.2 12.7-12.3V19.1S85.3 6.2 63.4 6.2zM48.4 14.4a4.6 4.6 0 110 9.2 4.6 4.6 0 010-9.2z"/>
-      <path fill="#FFD43B" d="M64.6 121.8c31.7 0 29.7-13.7 29.7-13.7l-.1-14.2H64v-4.3h42.4s15.4 1.8 15.4-26.1-13.4-27-13.4-27h-8v16.6s.4 13.4-13.2 13.4H57.3s-12.7-.2-12.7 12.3v20.9s-1.9 21.9 19.9 21.9zm15-8.2a4.6 4.6 0 110-9.2 4.6 4.6 0 010 9.2z"/>
-    </svg>
-    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">Python</span>
-  </div>
-);
-
-const AWSIcon = () => (
-  <div className="flex flex-col items-center gap-2">
-    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden bg-white p-2 flex items-center justify-center shadow-[0_8px_20px_rgba(0,0,0,0.25)]">
-      <img src={awsLogo} alt="AWS" className="w-full h-full object-contain" />
-    </div>
-    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">AWS</span>
-  </div>
-);
-
-const GenAIIcon = () => (
-  <div className="flex flex-col items-center gap-2">
-    <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
-      <BrainCircuit className="w-12 h-12 md:w-14 md:h-14 text-brand-400" strokeWidth={1.5} />
-    </div>
-    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">Generative AI</span>
+    <img src={src} alt={alt} className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-2xl" />
+    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">{label}</span>
   </div>
 );
 
 const TECH_ICONS = {
-  Python: PythonIcon,
-  AWS: AWSIcon,
-  "Generative AI": GenAIIcon,
+  Python: () => <TechIcon src={pythonLogo} alt="Python" label="Python" />,
+  AWS: () => <TechIcon src={awsLogo} alt="AWS" label="AWS" />,
+  "Generative AI": () => <TechIcon src={genaiLogo} alt="Generative AI" label="Generative AI" />,
+  "Power Automate": () => <TechIcon src={pautoLogo} alt="Power Automate" label="Power Automate" />,
 };
 
 const About = () => {
   return (
-    <section id="about" className="bg-ink-950 pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="about" className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
-
+        
         {/* Left Side: ID Badge and Skills */}
         <div className="flex flex-col items-center w-full md:w-[350px] shrink-0 mt-12 md:mt-0">
-
+          
           <div data-aos="drop-bounce" className="relative flex justify-center w-full">
             {/* Lanyard string */}
             <div className="absolute -top-32 left-1/2 w-3 h-40 bg-black transform -translate-x-1/2 shadow-inner z-0"></div>
             {/* Lanyard clip */}
             <div className="absolute -top-6 left-1/2 w-6 h-12 bg-gray-300 rounded border border-gray-400 transform -translate-x-1/2 z-10 shadow-[0_2px_10px_rgba(0,0,0,0.3)]"></div>
-
+            
             {/* Badge Card */}
-            <div className="bg-ink-800 w-full max-w-[280px] rounded-2xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+            <div className="bg-gray-900 w-full max-w-[280px] rounded-2xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
               {/* Cutout Hole */}
-              <div className="absolute -top-3 left-1/2 w-16 h-6 bg-ink-800 rounded-t-xl transform -translate-x-1/2 flex justify-center items-center">
+              <div className="absolute -top-3 left-1/2 w-16 h-6 bg-gray-900 rounded-t-xl transform -translate-x-1/2 flex justify-center items-center">
                 <div className="w-8 h-2 bg-black/30 rounded-full shadow-inner"></div>
               </div>
               {/* Image Container */}
               <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent">
-                <img
-                  src={stackImage}
+                <img 
+                  src={stackImage} 
                   alt="Jeevith R — AI Engineer & Full-Stack Product Builder"
                   className="w-full h-full object-cover object-top"
                 />
@@ -74,10 +55,10 @@ const About = () => {
 
         {/* Right Side: Info Content */}
         <div data-aos="fade-left" data-aos-delay="200" className="flex-1 text-white mt-8 md:mt-0 relative z-20">
-
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">{aboutContent.heading}</h2>
-          <p
-            className="text-lg font-bold mb-12 leading-relaxed max-w-3xl text-white/80"
+          
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-4">{aboutContent.heading}</h2>
+          <p 
+            className="text-lg font-bold mb-12 leading-relaxed max-w-3xl text-red-50"
             dangerouslySetInnerHTML={{ __html: aboutContent.bio }}
           />
 
@@ -99,16 +80,16 @@ const About = () => {
 
       {/* Torn paper divider at bottom */}
       <div className="absolute bottom-0 left-0 w-full pointer-events-none z-30 transform translate-y-1">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20 fill-ink-950">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20 fill-white">
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.62,189.5,99.8,242.79,81.82,282.88,63.6,321.39,56.44Z"></path>
         </svg>
       </div>
 
       {/* Decorative stars */}
-      <div className="absolute top-10 right-10 md:right-20 text-brand-500 opacity-20 animate-pulse">
+      <div className="absolute top-10 right-10 md:right-20 text-black opacity-30 animate-pulse">
         <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg>
       </div>
-      <div className="absolute bottom-32 left-4 md:left-20 text-brand-500 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
+      <div className="absolute bottom-32 left-4 md:left-20 text-black opacity-30 animate-pulse" style={{ animationDelay: '1s' }}>
         <svg className="w-20 h-20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg>
       </div>
     </section>

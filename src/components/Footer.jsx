@@ -3,7 +3,7 @@ import { personalInfo, socialLinks, footerContent } from '../data/portfolioData'
 
 const Footer = () => {
   return (
-    <footer className="bg-ink-900 text-gray-300 py-16 px-6 md:px-12 w-full font-mono text-[10px] md:text-xs tracking-widest flex flex-col justify-between min-h-[50vh]">
+    <footer className="bg-[#111111] text-[#d4d4d4] py-16 px-6 md:px-12 w-full font-mono text-[10px] md:text-xs tracking-widest flex flex-col justify-between min-h-[50vh]">
       
       {/* Top Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 w-full font-medium">
@@ -26,7 +26,7 @@ const Footer = () => {
 
       {/* Middle Huge Text */}
       <div className="w-full flex justify-center items-center py-20 md:py-24 overflow-hidden">
-        <h2 className="text-[18vw] md:text-[16vw] leading-none font-sans font-bold tracking-tighter lowercase select-none text-gray-100 w-full text-center">
+        <h2 className="text-[18vw] md:text-[16vw] leading-none font-sans font-bold tracking-tighter lowercase select-none text-[#f4f4f4] w-full text-center">
           {personalInfo.brandName.toLowerCase()}
         </h2>
       </div>
@@ -51,7 +51,7 @@ const Footer = () => {
               href={socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors duration-300"
+              className="text-[#d4d4d4] hover:text-white transition-colors duration-300"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -63,7 +63,7 @@ const Footer = () => {
               href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors duration-300"
+              className="text-[#d4d4d4] hover:text-white transition-colors duration-300"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
