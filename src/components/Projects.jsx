@@ -90,31 +90,6 @@ const ProjectCard = ({ project, aosDelay }) => (
           </a>
         )}
 
-        {/* Frontend Demo (Karigar) */}
-        {project.links.frontendDemo && (
-          <a 
-            href={project.links.frontendDemo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff2a2a] text-white text-sm font-semibold hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,42,42,0.4)] transition-all duration-300"
-          >
-            <ExternalLinkIcon />
-            Frontend Demo
-          </a>
-        )}
-
-        {/* Backend API (Karigar) */}
-        {project.links.backendApi && (
-          <a 
-            href={project.links.backendApi}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold hover:bg-white/20 transition-all duration-300"
-          >
-            <ExternalLinkIcon />
-            Backend API
-          </a>
-        )}
       </div>
     </div>
   </div>

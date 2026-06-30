@@ -1,18 +1,18 @@
 import React from 'react';
 import { technicalSkills } from '../data/portfolioData';
 
-const SkillProgress = ({ name, level }) => (
-  <div className="mb-4">
-    <div className="flex justify-between items-center mb-1">
-      <span className="text-white text-sm font-semibold tracking-wide">{name}</span>
-      <span className="text-red-400 text-xs font-bold font-mono">{level}%</span>
-    </div>
-    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden border border-white/5">
-      <div 
-        className="h-full bg-gradient-to-r from-red-600 to-red-400 rounded-full transition-all duration-1000 ease-out"
-        style={{ width: `${level}%` }}
-      />
-    </div>
+const TIER_STYLES = {
+  Expert: "bg-red-500/20 text-red-300 border-red-500/30",
+  Proficient: "bg-white/10 text-white/80 border-white/20",
+  Familiar: "bg-white/5 text-white/50 border-white/10",
+};
+
+const SkillProgress = ({ name, tier }) => (
+  <div className="flex justify-between items-center mb-4 last:mb-0">
+    <span className="text-white text-sm font-semibold tracking-wide">{name}</span>
+    <span className={`text-[10px] font-bold font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border ${TIER_STYLES[tier] || TIER_STYLES.Familiar}`}>
+      {tier}
+    </span>
   </div>
 );
 
@@ -27,7 +27,7 @@ const SkillCard = ({ category, index }) => (
     </h3>
     <div>
       {category.skills.map((skill) => (
-        <SkillProgress key={skill.name} name={skill.name} level={skill.level} />
+        <SkillProgress key={skill.name} name={skill.name} tier={skill.tier} />
       ))}
     </div>
   </div>
