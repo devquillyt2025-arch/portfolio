@@ -5,14 +5,14 @@ const ExperienceCard = ({ job, index }) => (
   <div
     data-aos="fade-up"
     data-aos-delay={index * 150}
-    className="bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:scale-[1.02] hover:bg-black/35 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 flex flex-col justify-between"
+    className="bg-[#0d0d0d] border border-red-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] rounded-3xl p-8 hover:scale-[1.02] hover:border-red-500/35 hover:shadow-[0_20px_50px_rgba(0,0,0,0.65)] transition-all duration-500 flex flex-col justify-between"
   >
     <div>
       <div className="flex justify-between items-start mb-6">
-        <span className="text-white/40 text-xs font-mono font-bold tracking-widest uppercase">
+        <span className="text-white/50 text-xs font-mono font-bold tracking-widest uppercase">
           {job.duration}
         </span>
-        <span className="bg-white/10 text-white text-[10px] font-black tracking-widest uppercase py-1 px-3 rounded-full border border-white/15">
+        <span className="bg-red-500/20 text-red-300 text-[10px] font-black tracking-widest uppercase py-1 px-3 rounded-full border border-red-500/30">
           Experience
         </span>
       </div>
@@ -22,13 +22,13 @@ const ExperienceCard = ({ job, index }) => (
       <p className="text-red-200 text-sm font-black tracking-wide mb-1 uppercase">
         {job.organization}
       </p>
-      <p className="text-white/40 text-xs font-bold tracking-wide mb-6 uppercase">
+      <p className="text-white/50 text-xs font-bold tracking-wide mb-6 uppercase">
         {job.location}
       </p>
 
       {/* Skills gained */}
       <div className="mb-6">
-        <h4 className="text-white/60 text-xs font-bold uppercase tracking-wider mb-2">Skills:</h4>
+        <h4 className="text-white/70 text-xs font-bold uppercase tracking-wider mb-2">Skills:</h4>
         <ul className="text-white/90 text-sm font-medium space-y-1 pl-4 list-disc">
           {job.skills.map((skill, i) => (
             <li key={i}>{skill}</li>
@@ -38,13 +38,13 @@ const ExperienceCard = ({ job, index }) => (
     </div>
 
     {/* Technologies used */}
-    <div className="pt-4 border-t border-white/10">
-      <h4 className="text-white/60 text-xs font-bold uppercase tracking-wider mb-3">Technologies:</h4>
+    <div className="pt-4 border-t border-white/15">
+      <h4 className="text-white/70 text-xs font-bold uppercase tracking-wider mb-3">Technologies:</h4>
       <div className="flex flex-wrap gap-2">
         {job.tech.map((t) => (
           <span
             key={t}
-            className="px-3 py-1 text-xs font-mono font-bold text-white bg-white/10 rounded-full border border-white/10 hover:bg-white/20 transition-all"
+            className="px-3 py-1 text-xs font-mono font-bold text-white bg-white/15 rounded-full border border-white/15 hover:bg-white/25 transition-all"
           >
             {t}
           </span>

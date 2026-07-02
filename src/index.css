@@ -48,7 +48,10 @@ body {
   left: 0;
   width: 100%;
   height: 3px;
-  z-index: 9999;
+  /* Below the navbar's z-[60] so the solid nav covers this line once
+     scrolled, instead of the red fill visibly cutting across the top
+     of the navbar. */
+  z-index: 40;
   background: rgba(255, 255, 255, 0.12);
   pointer-events: none;
 }
