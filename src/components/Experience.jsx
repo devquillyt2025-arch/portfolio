@@ -56,7 +56,7 @@ const ExperienceCard = ({ job, index }) => (
 
 const Experience = () => {
   return (
-    <section className="bg-[#ff2a2a] pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="experience" className="scroll-mt-24 bg-[#ff2a2a] pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans">
 
       {/* Torn paper divider at top */}
       <div className="absolute top-0 left-0 w-full pointer-events-none z-10 transform -translate-y-[1px] rotate-180">

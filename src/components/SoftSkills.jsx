@@ -2,22 +2,22 @@ import React from 'react';
 import { softSkillsList } from '../data/portfolioData';
 
 const SoftSkillCard = ({ skill, index }) => (
-  <div 
+  <div
     data-aos="fade-up"
     data-aos-delay={index * 100}
-    className="bg-[#f8f8f8] border border-gray-200 rounded-3xl p-6 hover:scale-[1.03] hover:bg-white hover:border-[#ff2a2a]/30 hover:shadow-[0_20px_45px_rgba(255,42,42,0.08)] transition-all duration-500 group flex flex-col items-center text-center justify-between min-h-[220px]"
+    className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] bg-slate-50/50 border border-slate-200/60 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all duration-300"
   >
-    <div className="flex flex-col items-center">
-      <div className="text-4xl mb-4 p-3 bg-gray-100 rounded-2xl group-hover:bg-[#ff2a2a]/10 group-hover:scale-110 transition-all duration-300">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-xl w-9 h-9 shrink-0 flex items-center justify-center rounded-full bg-indigo-50">
         {skill.icon}
-      </div>
-      <h3 className="text-gray-900 text-lg font-black tracking-tight mb-2 uppercase">
+      </span>
+      <h3 className="text-indigo-600 text-base font-bold tracking-tight leading-tight">
         {skill.name}
       </h3>
-      <p className="text-gray-500 text-sm font-medium leading-relaxed">
-        {skill.desc}
-      </p>
     </div>
+    <p className="text-slate-600 text-sm leading-relaxed">
+      {skill.desc}
+    </p>
   </div>
 );
 
@@ -48,7 +48,7 @@ const SoftSkills = () => {
         </div>
 
         {/* Soft Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {softSkillsList.map((skill, index) => (
             <SoftSkillCard key={skill.name} skill={skill} index={index} />
           ))}
