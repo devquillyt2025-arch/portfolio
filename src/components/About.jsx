@@ -8,7 +8,7 @@ import { aboutContent } from '../data/portfolioData';
 
 const TechIcon = ({ src, alt, label }) => (
   <div className="flex flex-col items-center gap-2">
-    <img src={src} alt={alt} className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-2xl" />
+    <img src={src} alt={alt} loading="lazy" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-2xl" />
     <span className="text-xs font-bold text-white/70 uppercase tracking-wider">{label}</span>
   </div>
 );
@@ -22,7 +22,7 @@ const TECH_ICONS = {
 
 const About = () => {
   return (
-    <section id="about" className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="about" className="scroll-mt-24 bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
         
         {/* Left Side: ID Badge and Skills */}
@@ -42,9 +42,10 @@ const About = () => {
               </div>
               {/* Image Container */}
               <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent">
-                <img 
-                  src={stackImage} 
+                <img
+                  src={stackImage}
                   alt="Jeevith R — AI Engineer & Full-Stack Product Builder"
+                  loading="lazy"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
@@ -62,8 +63,9 @@ const About = () => {
             dangerouslySetInnerHTML={{ __html: aboutContent.bio }}
           />
 
-          {/* Horizontal Skills Row */}
-          <div className="flex items-center gap-10 mt-8">
+          {/* Horizontal Skills Row — wraps + tighter gap on small screens so
+              the 4th icon isn't clipped by the section's overflow-hidden */}
+          <div className="flex flex-wrap items-center gap-4 sm:gap-8 md:gap-10 mt-8">
             {aboutContent.techStack.map((tech, i) => {
               const Icon = TECH_ICONS[tech];
               if (!Icon) return null;

@@ -1,25 +1,10 @@
 @import "tailwindcss";
 
-/*
-  Single brand palette: near-black (ink, every section) + the exact brand
-  red (#ff2a2a) as the ONLY accent color, used for badges, CTAs, borders,
-  and the full-bleed Hero background. Generates bg-ink-*, text-brand-*,
-  border-brand-500/30, etc. via Tailwind v4's @theme — no component should
-  reach for an arbitrary hex value outside this scale.
-*/
 @theme {
-  --color-ink-950: #0a0a0a;
-  --color-ink-900: #111111;
-  --color-ink-800: #1a1a1a;
-  --color-ink-700: #242424;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
-  --color-brand-700: #cc1f1f;
-  --color-brand-600: #e62525;
-  --color-brand-500: #ff2a2a;
-  --color-brand-400: #ff5c5c;
-  --color-brand-300: #ff8a8a;
-  --color-brand-200: #ffb3b3;
-  --color-brand-100: #ffd9d9;
+  --color-primary-from: var(--color-indigo-500);
+  --color-primary-to: var(--color-purple-500);
 
   --animate-float: float 6s ease-in-out infinite;
 
@@ -36,9 +21,48 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-ink-950);
-  color: #fff;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-slate-900);
+  color: var(--color-slate-200);
+  font-family: var(--font-sans);
+}
+
+.bg-gradient-primary {
+  background-image: linear-gradient(135deg, var(--color-primary-from), var(--color-primary-to));
+}
+
+.text-gradient-primary {
+  background-image: linear-gradient(135deg, var(--color-primary-from), var(--color-primary-to));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  /* Above the navbar (z-[60]) — the navbar has a solid background now,
+     so this can't ghost/bleed through it; it just reads as a thin
+     progress line pinned above the header, which is the intended look. */
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+
+.scroll-progress-fill {
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #ff2a2a 0%, #ff5252 100%);
+  transition: transform 0.1s linear;
 }
 
 /* Mobile-only: red fallback so the very first paint (and OG screenshot)
