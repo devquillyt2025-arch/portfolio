@@ -34,7 +34,7 @@ const Certificates = () => {
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4 tracking-tight">
             Certifications
           </h2>
-          <p className="text-red-100 text-base md:text-lg font-semibold max-w-lg mx-auto">
+          <p className="text-red-50 text-base md:text-lg font-semibold max-w-lg mx-auto">
             Industry-recognized certifications that validate my technical expertise.
           </p>
         </div>

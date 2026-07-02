@@ -31,7 +31,7 @@ const Navbar = () => {
           scrolling underneath can't ghost through the nav. */}
       <div
         aria-hidden="true"
-        className={`absolute inset-0 backdrop-blur-sm bg-slate-900 transition-opacity duration-300 ${
+        className={`absolute inset-0 backdrop-blur-sm bg-[#0a0a0a] transition-opacity duration-300 ${
           isScrolled ? 'opacity-100' : 'opacity-0'
         }`}
       />
@@ -78,7 +78,9 @@ const Navbar = () => {
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-slate-200 focus:outline-none p-2"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            className="text-slate-200 p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
@@ -94,7 +96,7 @@ const Navbar = () => {
       {/* Mobile Slide-Down Menu */}
       <div
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 py-4 opacity-100 bg-slate-900/95 backdrop-blur-sm shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
+          isOpen ? 'max-h-96 py-4 opacity-100 bg-[#0a0a0a]/95 backdrop-blur-sm shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
         }`}
       >
         <div className="flex flex-col px-6 space-y-4">
@@ -112,7 +114,7 @@ const Navbar = () => {
              <a
                href={hireMeMailto}
                onClick={() => setIsOpen(false)}
-               className="inline-block px-6 py-3 rounded-full bg-gradient-primary text-white font-black hover:opacity-90 transition-opacity w-full text-center shadow-lg"
+               className="inline-block px-6 py-3 rounded-full bg-[#ff2a2a] text-white font-black hover:bg-red-600 transition-colors w-full text-center shadow-lg"
              >
                Hire Me
              </a>

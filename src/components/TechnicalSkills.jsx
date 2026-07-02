@@ -17,10 +17,10 @@ const SkillProgress = ({ name, tier }) => (
 );
 
 const SkillCard = ({ category, index }) => (
-  <div 
+  <div
     data-aos="fade-up"
     data-aos-delay={index * 100}
-    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:scale-[1.02] hover:border-red-500/30 hover:shadow-[0_20px_50px_rgba(255,42,42,0.1)] transition-all duration-500"
+    className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:scale-[1.02] hover:border-red-500/30 hover:shadow-[0_20px_50px_rgba(255,42,42,0.1)] transition-all duration-500"
   >
     <h3 className="text-white text-lg font-black tracking-tight mb-6 pb-2 border-b border-white/10 uppercase">
       {category.title}
@@ -55,8 +55,9 @@ const TechnicalSkills = () => {
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Skills Grid — flex-wrap so the 2-card last row centers instead of
+            leaving an empty third column */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {technicalSkills.categories.map((category, index) => (
             <SkillCard key={category.title} category={category} index={index} />
           ))}

@@ -46,13 +46,15 @@ const Hero = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Left Floating Social Bar for Large Screens */}
-      <div className="hidden lg:flex flex-col gap-6 fixed left-6 top-1/2 -translate-y-1/2 z-50">
+      {/* Left Floating Social Bar for Large Screens.
+          Each icon sits on a dark glass chip so it stays visible over the
+          white sections (Process, Soft Skills) it floats across. */}
+      <div className="hidden lg:flex flex-col gap-4 fixed left-6 top-1/2 -translate-y-1/2 z-50">
         <a
           href={socialLinks.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:scale-125 transition-transform duration-300"
+          className="text-white bg-black/40 backdrop-blur-sm rounded-full p-2.5 hover:scale-110 hover:bg-black/60 transition-all duration-300"
           aria-label="GitHub"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -63,7 +65,7 @@ const Hero = () => {
           href={socialLinks.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:scale-125 transition-transform duration-300"
+          className="text-white bg-black/40 backdrop-blur-sm rounded-full p-2.5 hover:scale-110 hover:bg-black/60 transition-all duration-300"
           aria-label="LinkedIn"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -119,17 +121,17 @@ const Hero = () => {
             className="flex flex-row flex-wrap items-center gap-3 w-full"
           >
             {/* Primary Button */}
-            <a 
+            <a
               href={heroContent.ctaPrimary.href}
-              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md"
+              className="px-5 py-2.5 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md"
             >
               {heroContent.ctaPrimary.text}
             </a>
             
             {/* Secondary Button - Glassmorphism style */}
-            <a 
+            <a
               href={heroContent.ctaSecondary.href}
-              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-black/40 border border-white text-white font-semibold hover:bg-black/60 transition-all duration-300 backdrop-blur-md"
+              className="px-5 py-2.5 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-black/40 border border-white text-white font-semibold hover:bg-black/60 transition-all duration-300 backdrop-blur-md"
             >
               {heroContent.ctaSecondary.text}
             </a>
@@ -138,7 +140,7 @@ const Hero = () => {
             <a
               href={heroContent.ctaResume.href}
               download
-              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-transparent border border-white/50 text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md flex items-center gap-2"
+              className="px-5 py-2.5 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-transparent border border-white/50 text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -149,9 +151,11 @@ const Hero = () => {
         </div>
 
         {/* Right Side: Play Video Button */}
-        <div
-          className="mt-8 md:mt-0 flex flex-row md:flex-col items-center gap-2 md:gap-3 cursor-pointer group self-start md:self-auto"
+        <button
+          type="button"
           onClick={toggleVideo}
+          aria-label={!isPlaying || isMuted ? 'Play reel video' : 'Pause reel video'}
+          className="mt-8 md:mt-0 flex flex-row md:flex-col items-center gap-2 md:gap-3 cursor-pointer group self-start md:self-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 rounded-full"
         >
           <div className="w-12 h-12 md:w-20 md:h-20 rounded-full border border-white/30 bg-black/20 backdrop-blur-md flex justify-center items-center group-hover:scale-110 group-hover:bg-[#ff2a2a] transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_40px_rgba(255,42,42,0.6)]">
             {!isPlaying || isMuted ? (
@@ -169,7 +173,7 @@ const Hero = () => {
           <span className="text-white text-[10px] md:text-xs font-bold tracking-widest uppercase opacity-70 group-hover:opacity-100 transition-opacity bg-black/40 px-2 py-1 rounded">
             {!isPlaying || isMuted ? "Play Reel" : "Pause"}
           </span>
-        </div>
+        </button>
       </div>
 
       {/* Scroll Indicator */}

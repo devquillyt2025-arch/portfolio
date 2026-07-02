@@ -72,7 +72,7 @@ const Experience = () => {
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4 tracking-tight uppercase">
             Professional Experience
           </h2>
-          <p className="text-red-100 text-base md:text-lg font-semibold max-w-lg mx-auto">
+          <p className="text-red-50 text-base md:text-lg font-semibold max-w-lg mx-auto">
             Roles where I applied engineering principles and built real-world assets.
           </p>
         </div>

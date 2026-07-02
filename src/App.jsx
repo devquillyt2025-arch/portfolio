@@ -17,27 +17,45 @@ function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
+    let ticking = false
+
     const updateScrollProgress = () => {
       const scrollTop = window.scrollY
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
       const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0
       setScrollProgress(Math.min(100, Math.max(0, progress)))
+      ticking = false
+    }
+
+    // Throttle scroll-driven updates to once per animation frame so
+    // fast/inertial scrolling (especially touch) doesn't queue up a
+    // state update per event.
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true
+        window.requestAnimationFrame(updateScrollProgress)
+      }
     }
 
     updateScrollProgress()
-    window.addEventListener('scroll', updateScrollProgress, { passive: true })
+    window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', updateScrollProgress)
+    window.addEventListener('load', updateScrollProgress)
 
     return () => {
-      window.removeEventListener('scroll', updateScrollProgress)
+      window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', updateScrollProgress)
+      window.removeEventListener('load', updateScrollProgress)
     }
   }, [])
 
   return (
     <>
       <div className="scroll-progress-track" aria-hidden="true">
-        <div className="scroll-progress-fill" style={{ width: `${scrollProgress}%` }} />
+        <div
+          className="scroll-progress-fill"
+          style={{ transform: `scaleX(${scrollProgress / 100})` }}
+        />
       </div>
       <Preloader />
       <Navbar />
